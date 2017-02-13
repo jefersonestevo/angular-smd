@@ -1,0 +1,101 @@
+
+@mixin smd-datatable-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $base-border-color: md-color($foreground, divider);
+  $base-sorted-icon-selected: md-color($foreground, text);
+
+  smd-datatable {
+    .smd-data-table {
+      border-color: $base-border-color;
+      background-color: transparent;
+
+      tr {
+        color: md-color($foreground, text);
+      }
+
+      thead {
+        border-bottom-color: $base-border-color;
+        border-top-color: $base-border-color;
+
+        tr {
+          th {
+            color: md-color($foreground, text);
+
+            &.smd-datatable-column-sortable {
+              & > span {
+                &:before {
+                  color: md-color($foreground, hint-text);
+                }
+
+                &.smd-sorted-asc {
+                  &:before {
+                    color: $base-sorted-icon-selected;
+                  }
+                }
+
+                &.smd-sorted-desc {
+                  &:before {
+                    color: $base-sorted-icon-selected;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+      tbody {
+        tr {
+          color: md-color($foreground, text);
+
+          border-top-color: $base-border-color;
+          border-bottom-color: $base-border-color;
+
+          &:hover {
+            background-color: md-color($background, hover);
+          }
+
+          &.is-selected {
+            background-color: #F5F5F5;
+            color: md-color($md-light-theme-foreground, text);
+          }
+
+          & .smd-column-title {
+            color: md-color($foreground, text);
+          }
+        }
+      }
+
+      tfoot {
+        tr {
+          td {
+            smd-paginator {
+              color: md-color($foreground, secondary-text);
+            }
+          }
+        }
+      }
+
+      smd-datatable-header {
+        background-color: transparent;
+
+        & > div {
+          button {
+            color: md-color($foreground, text);
+          }
+        }
+
+        &.is-selected {
+          background-color: md-color($accent, 50);
+          color: md-color($primary);
+        }
+      }
+    }
+  }
+
+}

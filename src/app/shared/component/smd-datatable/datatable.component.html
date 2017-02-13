@@ -1,0 +1,61 @@
+<table class="smd-data-table full-width">
+    <caption>
+        <ng-content select="smd-datatable-header"></ng-content>
+    </caption>
+    <thead>
+    <tr>
+        <th *ngIf="_shouldRenderCheckbox()">
+            <md-checkbox [(ngModel)]="checked"
+                (change)="_onMasterCheckChange()">
+            </md-checkbox>
+        </th>
+        <th *ngFor="let column of columns"
+            [class.smd-datatable-column-sortable]="column.sortable"
+            [class.smd-numeric-column]="column.numeric"
+            (click)="_sortColumn(column)">
+            <span
+                mdTooltip="{{column.titleTooltip}}"
+                [class.smd-sorted-asc]="column.sortDir == 'asc'"
+                [class.smd-sorted-desc]="column.sortDir == 'desc'">
+                {{column.title}}
+            </span>
+        </th>
+    </tr>
+    <tr *ngIf="responsive && _shouldRenderCheckbox()" class="smd-datatable-responsive-header">
+        <th [attr.colspan]="columns.length + (_shouldRenderCheckbox() ? 1 : 0)">
+            <md-checkbox [(ngModel)]="checked"
+                         (change)="_onMasterCheckChange()">
+            </md-checkbox>
+        </th>
+    </tr>
+    </thead>
+    <tbody *ngIf="rows?.length > 0">
+        <tr #dataTableRow smd-datatable-row *ngFor="let row of visibleRows"
+            [class.is-selected]="row.checked"
+            [row]="row"
+            [renderCheckbox]="_shouldRenderCheckbox()"
+            [columns]="columns"></tr>
+    </tbody>
+    <tfoot>
+        <!-- Using hidden because *ngIf is conflicting with ViewChild(SmdPaginatorComponent) -->
+        <tr [hidden]="!paginated || rows.length == 0">
+            <td [attr.colspan]="columns.length + (_shouldRenderCheckbox() ? 1 : 0)">
+                <span>
+                    <smd-paginator
+                            [count]="rowCount"
+                            [ranges]="paginatorRanges"
+                            (pageChange)="_onPageChange($event)">
+                    </smd-paginator>
+                </span>
+            </td>
+        </tr>
+        <tr *ngIf="rows.length == 0">
+            <td [attr.colspan]="columns.length + (_shouldRenderCheckbox() ? 1 : 0)">
+                <span>
+                    Não existem itens
+                </span>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+

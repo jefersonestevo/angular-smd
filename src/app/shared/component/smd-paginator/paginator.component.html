@@ -1,0 +1,19 @@
+<div class="smd-paginator">
+    <div class="smd-paginator-range">
+        Registros por página:
+        <select [(ngModel)]="selectedRange" (change)="onPageChange($event)">
+            <option *ngFor="let range of ranges" value="{{range}}">{{range}}</option>
+        </select>
+    </div>
+    <div class="smd-paginator-current-page">
+        {{pageStart}}-{{pageEnd}} de {{count}}
+    </div>
+    <div class="smd-paginator-navigation">
+        <button (click)="onPreviousClick($event)" [disabled]="pageStart == 1">
+            <i class="material-icons">arrow_left</i>
+        </button>
+        <button (click)="onNextClick($event)" [disabled]="pageEnd == count">
+            <i class="material-icons">arrow_right</i>
+        </button>
+    </div>
+</div>

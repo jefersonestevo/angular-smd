@@ -1,0 +1,44 @@
+@import "~@angular/material/core/theming/theming";
+
+@mixin smd-paginator-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .smd-paginator {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    .smd-paginator-range {
+      select {
+        border: none;
+        border-bottom-color: md-color($foreground, divider);
+
+        option {
+          color: #000000;
+        }
+      }
+    }
+
+    .smd-paginator-navigation {
+
+      button {
+        color: md-color($foreground, text);
+        background: transparent;
+
+        &[disabled] {
+          color: md-color($foreground, disabled-text);
+        }
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,94 @@
+.smd-paginator {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
+  .smd-paginator-range {
+    select {
+      width: 50px;
+      height: 28px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      font-size: 14px;
+      font-family: "Helvetica","Arial",sans-serif;
+      margin: 0 0 0 5px;
+      padding: 4px 0;
+      background: 0 0;
+      text-align: left;
+      box-shadow: none;
+
+      &:focus {
+        outline: none;
+        outline-offset: 2px;
+      }
+
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+      }
+    }
+  }
+
+  .smd-paginator-current-page {
+    margin-left: 5px;
+    min-width: 100px;
+  }
+
+  .smd-paginator-navigation {
+    margin-left: 5px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    button {
+      display:flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-start;
+      align-items: flex-start;
+
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      padding: 0;
+      min-width: 0;
+      flex-shrink: 0;
+      line-height: 40px;
+      border-radius: 50%;
+
+      outline: none;
+      border: none;
+      white-space: nowrap;
+      text-decoration: none;
+      vertical-align: middle;
+      font-size: 14px;
+      font-family: Roboto,"Helvetica Neue",sans-serif;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      &:focus, &:active, &:hover, &::-moz-focus-inner, &::-moz-selection {
+        outline:0;
+      }
+
+      &[disabled] {
+        cursor: default;
+      }
+    }
+
+  }
+
+}
+

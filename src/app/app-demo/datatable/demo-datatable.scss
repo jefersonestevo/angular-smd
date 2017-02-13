@@ -1,0 +1,28 @@
+body {
+  width: 100%;
+}
+
+.example-card {
+  margin: 20px 80px 20px 80px;
+  width: calc(100% - 160px);
+
+  &.datatable-card {
+    // FIXME - Card really needs to use a 20px padding as default?
+    padding: 0 !important;
+  }
+
+  &:not(.datatable-card) {
+    width: calc(100% - 205px);
+  }
+}
+
+@media screen and (max-width: 35em) {
+  .example-card {
+    margin: 20px 5px 20px 5px;
+    width: calc(100% - 20px);
+
+    &:not(.datatable-card) {
+      width: calc(100% - 45px);
+    }
+  }
+}
