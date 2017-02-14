@@ -16,7 +16,25 @@ body {
   }
 }
 
-@media screen and (max-width: 35em) {
+.demo-tab-group {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 40px;
+  .mat-tab-header {
+    background: #f9f9f9;
+  }
+  .mat-tab-body-content {
+    padding: 12px;
+  }
+
+  .tab-content {
+    width: 100%;
+    max-height: 800px;
+    display: block;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 60em) {
   .example-card {
     margin: 20px 5px 20px 5px;
     width: calc(100% - 20px);
