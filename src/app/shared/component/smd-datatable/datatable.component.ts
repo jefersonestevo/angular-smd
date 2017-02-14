@@ -76,7 +76,7 @@ export class SmdDatatableDialogChangeValue {
     }
 
     _save() {
-        this.dialogRef.close(this.value);
+        this.dialogRef.close(this.value ? this.value : '');
     }
 
     _cancel() {
@@ -151,8 +151,17 @@ export class SmdDataTableRowComponent {
             dialogRef.componentInstance.value = model[column.field];
 
             dialogRef.afterClosed().subscribe((result) => {
-                if (result !== 'undefined') {
-                    model[column.field] = result;
+                if (typeof result == 'string') {
+                    let oldValue = model[column.field];
+                    if (oldValue != result) {
+                        model[column.field] = result;
+                        column.onFieldChange.emit({
+                            model: model,
+                            field: column.field,
+                            oldValue: oldValue,
+                            newValue: result
+                        });
+                    }
                 }
             });
         }
@@ -185,6 +194,8 @@ export class SmdDataTableColumnComponent implements OnInit {
 
     @ContentChild(TemplateRef) _customTemplate: TemplateRef<Object>;
     @ViewChild('internalTemplate') _internalTemplate: TemplateRef<Object>;
+
+    @Output() onFieldChange: EventEmitter<any> = new EventEmitter<any>();
 
     get template() {
         return this._customTemplate ? this._customTemplate : this._internalTemplate;
