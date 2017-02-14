@@ -86,6 +86,7 @@ Angular datatable based on [Material Design Data Table](https://material.io/guid
 | filterFn              | Function     |                     | When filter is enabled, a custom function to filter this column |
 | editable              | boolean      | false               | If this column can be edited |
 | editablePlaceholder   | string       |                     | The placeholder when the value of this editable column is empty |
+| onFieldChange         | event        |                     | The event sent when the user changes a editable field value |
 
 The smd-datatable-column enables the user to use a template to define the cell content:
 Example:
