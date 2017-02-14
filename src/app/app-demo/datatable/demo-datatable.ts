@@ -118,7 +118,8 @@ export class DemoDatatableView implements OnInit {
         }
         
         fieldChanged(event: any) {
-            console.log('field changed: ' + + JSON.stringify(event));
+            console.log('field changed');
+            console.log(event);
         }
     }
     `;
