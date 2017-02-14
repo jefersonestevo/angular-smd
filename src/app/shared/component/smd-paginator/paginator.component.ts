@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit} from "@angular/core";
+import {Component, Input, Output, EventEmitter, OnInit, ViewEncapsulation} from "@angular/core";
 
 export class SmdPaginationModel {
     constructor(public page : number,
@@ -15,14 +15,28 @@ export class SmdPaginationModel {
 @Component({
     selector: "smd-paginator",
     templateUrl: "./paginator.component.html",
-    styleUrls: ["./paginator.component.scss"]
+    styleUrls: ["./paginator.component.scss"],
+    encapsulation: ViewEncapsulation.None
 })
 export class SmdPaginatorComponent implements OnInit {
 
+    private _selectedRange : number;
+
     @Input() selectedPage : number = 1;
     @Input() count : number = 0;
-    @Input() selectedRange : number;
     @Input() ranges : number[] = [10, 25, 50, 100];
+    @Input() set selectedRange(selectedRange: number) {
+        let current = this._selectedRange;
+        this._selectedRange = selectedRange;
+
+        if (current != this._selectedRange) {
+            this.reset();
+        }
+    }
+
+    get selectedRange(): number {
+        return this._selectedRange;
+    }
 
     @Output() pageChange : EventEmitter<SmdPaginationModel> = new EventEmitter<SmdPaginationModel>();
 
@@ -30,10 +44,6 @@ export class SmdPaginatorComponent implements OnInit {
         if (!this.selectedRange) {
             this.selectedRange = this.ranges[0];
         }
-    }
-
-    onPageChange() {
-        this.reset();
     }
 
     onPreviousClick() {

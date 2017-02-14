@@ -6,29 +6,12 @@
   align-content: center;
   align-items: center;
 
-  .smd-paginator-range {
-    select {
-      width: 50px;
-      height: 28px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      font-size: 14px;
-      font-family: "Helvetica","Arial",sans-serif;
-      margin: 0 0 0 5px;
-      padding: 4px 0;
-      background: 0 0;
-      text-align: left;
-      box-shadow: none;
-
-      &:focus {
-        outline: none;
-        outline-offset: 2px;
-      }
-
-      &:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-      }
+  & .smd-paginator-range {
+    & .md-select-trigger {
+      min-width: 50px !important;
+      width: 50px !important;
+      top: -6px;
+      left: 10px;
     }
   }
 

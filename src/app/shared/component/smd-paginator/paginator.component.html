@@ -1,9 +1,11 @@
 <div class="smd-paginator">
     <div class="smd-paginator-range">
-        Registros por página:
-        <select [(ngModel)]="selectedRange" (change)="onPageChange($event)">
-            <option *ngFor="let range of ranges" value="{{range}}">{{range}}</option>
-        </select>
+        Rows per page:
+        <md-select [(ngModel)]="selectedRange">
+            <md-option *ngFor="let range of ranges" [value]="range">
+                {{range}}
+            </md-option>
+        </md-select>
     </div>
     <div class="smd-paginator-current-page">
         {{pageStart}}-{{pageEnd}} de {{count}}
