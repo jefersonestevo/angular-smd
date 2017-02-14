@@ -8,7 +8,7 @@ import "../../public/src/styles.scss";
         <div class="smd-header">
           <md-toolbar color="primary">
               <span>Angular SMD</span>
-              <md-select [(ngModel)]="theme">
+              <md-select [(ngModel)]="theme" mdTooltip="Change the Page Theme!!">
                   <md-option value="indigo-pink">indigo-pink</md-option>
                   <md-option value="deeppurple-amber">deeppurple-amber</md-option>   
                   <md-option value="pink-bluegrey">pink-bluegrey</md-option>   
