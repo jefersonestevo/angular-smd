@@ -95,3 +95,9 @@ Example:
         {{model.birthDate | date:'dd/MM/yyyy'}}
     </template>
     
+### TODO List
+
+ - Enable inline text edit
+ - Inline Menu
+ - Enable lazy loading
+ - Review css according to the spec
