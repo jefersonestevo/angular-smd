@@ -25,6 +25,7 @@ import {
 import {isNullOrUndefined} from "util";
 import {SmdPaginatorComponent} from "../smd-paginator/paginator.component";
 import {Subscription} from "rxjs/Subscription";
+import {MdDialogRef, MdDialog, MdDialogConfig} from '@angular/material';
 
 let columnIds = 0;
 
@@ -33,6 +34,53 @@ export class SmdDataRowModel {
 
     constructor(public model: any,
                 public checked?: boolean) {
+    }
+}
+
+@Component({
+    selector: "smd-change-value-dialog",
+    template: `
+        <h1 *ngIf="title" md-dialog-title>{{title}}</h1>
+        <md-dialog-content>
+            <md-input-container>
+                <input type="text" md-input [placeholder]="placeholder" [(ngModel)]="value">
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions>
+            <button type="button" md-button (click)="_cancel()">Cancel</button>
+            <button type="button" md-button (click)="_save()">Save</button>
+        </md-dialog-actions>
+    `,
+    styles: [`
+        * {
+            font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;        
+        }
+        
+        md-dialog-actions {
+            float: right;
+        }
+        
+        md-dialog-content {
+            min-width: 150px;
+            padding: 5px 30px;
+        }
+    `]
+})
+export class SmdDatatableDialogChangeValue {
+
+    public title: string;
+    public placeholder: string;
+    public value: string;
+
+    constructor(public dialogRef: MdDialogRef<SmdDatatableDialogChangeValue>) {
+    }
+
+    _save() {
+        this.dialogRef.close(this.value);
+    }
+
+    _cancel() {
+        this.dialogRef.close();
     }
 }
 
@@ -69,12 +117,15 @@ export class SmdDataTableCellComponent implements OnInit, OnDestroy {
             </div>
         </td>
         <td *ngFor="let column of columns"
-            [class.smd-numeric-column]="column.numeric">
+            [class.smd-numeric-column]="column.numeric"
+            [class.smd-editable]="column.editable"
+            (click)="_onClick(column, row.model)">
             <span class="smd-column-title">
                 {{column.title}}
             </span>
             <span class="smd-cell-data">
                 <template smd-data-cell [column]="column" [data]="row.model" [templ]="column.template"></template>
+                <span class="smd-editable-field-placeholder" *ngIf="column.editable && !row.model[column.field]">{{column.editablePlaceholder}}</span>
             </span>
         </td>
     `
@@ -84,7 +135,27 @@ export class SmdDataTableRowComponent {
     @Input() renderCheckbox: boolean;
     @Input() columns: SmdDataTableColumnComponent[];
 
-    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable) {
+    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable, private dialog: MdDialog, private viewContainerRef: ViewContainerRef) {
+    }
+
+    _onClick(column: SmdDataTableColumnComponent, model: any) {
+        if (column.editable) {
+            let dialogRef: MdDialogRef<SmdDatatableDialogChangeValue>;
+            let dialogConfig = new MdDialogConfig();
+            dialogConfig.viewContainerRef = this.viewContainerRef;
+
+            dialogRef = this.dialog.open(SmdDatatableDialogChangeValue, dialogConfig);
+
+            dialogRef.componentInstance.title = column.editablePlaceholder;
+            dialogRef.componentInstance.placeholder = column.title;
+            dialogRef.componentInstance.value = model[column.field];
+
+            dialogRef.afterClosed().subscribe((result) => {
+                if (result !== 'undefined') {
+                    model[column.field] = result;
+                }
+            });
+        }
     }
 
 }
@@ -93,7 +164,9 @@ export class SmdDataTableRowComponent {
     selector: "smd-datatable-column",
     template: `
         <ng-content select="template"></ng-content>
-        <template #internalTemplate *ngIf="!_template" let-model="data">{{getFieldValue(model)}}</template>
+        <template #internalTemplate *ngIf="!_template" let-model="data">
+            {{getFieldValue(model)}}
+        </template>
     `
 })
 export class SmdDataTableColumnComponent implements OnInit {
@@ -107,6 +180,8 @@ export class SmdDataTableColumnComponent implements OnInit {
     @Input() sortable: boolean = false;
     @Input() sortFn: (a:any, b:any, sortDir: string) => number;
     @Input() filterFn: (a:any, text: string) => boolean;
+    @Input() editable: boolean = false;
+    @Input() editablePlaceholder: string;
 
     @ContentChild(TemplateRef) _customTemplate: TemplateRef<Object>;
     @ViewChild('internalTemplate') _internalTemplate: TemplateRef<Object>;

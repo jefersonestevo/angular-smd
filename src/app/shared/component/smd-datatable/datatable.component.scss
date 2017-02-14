@@ -144,6 +144,10 @@ smd-datatable {
             padding: 0 12px 0 5px;
           }
 
+          &.smd-editable {
+            cursor: pointer;
+          }
+
           & .smd-column-title {
             display: none;
             font-size: 12px;

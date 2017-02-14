@@ -68,6 +68,14 @@
           & .smd-column-title {
             color: md-color($foreground, text);
           }
+
+          td {
+            &.smd-editable {
+              & .smd-editable-field-placeholder {
+                color: md-color($foreground, hint-text);
+              }
+            }
+          }
         }
       }
 

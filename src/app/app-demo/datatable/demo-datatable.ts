@@ -6,7 +6,8 @@ export class SampleModel {
                 public name?: string,
                 public surname?: string,
                 public birthDate?: Date,
-                public avatar?: string) {
+                public avatar?: string,
+                public comment?: string) {
     }
 }
 
@@ -32,7 +33,8 @@ export class DemoDatatableView implements OnInit {
                         name: 'Name ' + index,
                         surname: 'Surname ' + index,
                         birthDate: (new Date().getTime() + (index * 10000010)),
-                        avatar: (index % 2 == 1 ? 'search' : 'add')
+                        avatar: (index % 2 == 1 ? 'search' : 'add'),
+                        comment: (index <= 5 ? 'comment ' + index : null)
                     };
                 });
         });
@@ -78,7 +80,8 @@ export class DemoDatatableView implements OnInit {
                         name: 'Name ' + index,
                         surname: 'Surname ' + index,
                         birthDate: (new Date().getTime() + (index * 10000010)),
-                        avatar: (index % 2 == 1 ? 'search' : 'add')
+                        avatar: (index % 2 == 1 ? 'search' : 'add'),
+                        comment: (index <= 5 ? 'comment ' + index : null)
                     };
                 });
             });
@@ -142,6 +145,7 @@ export class DemoDatatableView implements OnInit {
                 <md-icon>{{model.avatar}}</md-icon>
             </template>
         </smd-datatable-column>
+        <smd-datatable-column title="Comment" field="comment" titleTooltip="User comment" editable="true" editablePlaceholder="Add a comment"></smd-datatable-column>
     </smd-datatable>
     `;
 }

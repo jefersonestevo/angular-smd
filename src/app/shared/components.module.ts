@@ -13,6 +13,7 @@ import {
     SmdDataTableColumnComponent,
     SmdDataTableRowComponent,
     SmdDataTableCellComponent,
+    SmdDatatableDialogChangeValue,
     SmdPaginatorComponent
 } from "./component";
 
@@ -24,6 +25,7 @@ let COMPONENTS = [
     SmdDataTableColumnComponent,
     SmdDataTableRowComponent,
     SmdDataTableCellComponent,
+    SmdDatatableDialogChangeValue,
     SmdPaginatorComponent
 ];
 
@@ -41,7 +43,7 @@ let IMPORTS = [
     exports: COMPONENTS,
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    entryComponents: []
+    entryComponents: [SmdDatatableDialogChangeValue]
 })
 export class ComponentsModule {
 

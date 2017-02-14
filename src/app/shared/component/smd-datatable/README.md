@@ -34,6 +34,7 @@ Angular datatable based on [Material Design Data Table](https://material.io/guid
                 <md-icon>{{model.avatar}}</md-icon>
             </template>
         </smd-datatable-column>
+        <smd-datatable-column title="Comment" field="comment" titleTooltip="User comment" editable="true" editablePlaceholder="Add a comment"></smd-datatable-column>
     </smd-datatable>
     
 ### Properties
@@ -74,15 +75,17 @@ Angular datatable based on [Material Design Data Table](https://material.io/guid
 
 #### smd-datatable-column
 
-| Property         | Type         | Default             | Description                                     |
-|------------------|--------------|---------------------|-------------------------------------------------|
-| title            | string       |                     | The header of this column                       |
-| field            | string       |                     | The field (from models) to represent this column (when a template is not used, this field will be shown in the datatable cell|
-| numeric          | boolean      | false               | If this column should be treated as numeric     |
-| titleTooltip     | string       |                     | The tooltip for the header of this column       |
-| sortable         | boolean      | false               | If this column is sorted (default sort by this column field value) |
-| sortFn           | Function     |                     | If sortable, a custom function to sort this column |
-| filterFn         | Function     |                     | When filter is enabled, a custom function to filter this column |
+| Property              | Type         | Default             | Description                                     |
+|-----------------------|--------------|---------------------|-------------------------------------------------|
+| title                 | string       |                     | The header of this column                       |
+| field                 | string       |                     | The field (from models) to represent this column (when a template is not used, this field will be shown in the datatable cell|
+| numeric               | boolean      | false               | If this column should be treated as numeric     |
+| titleTooltip          | string       |                     | The tooltip for the header of this column       |
+| sortable              | boolean      | false               | If this column is sorted (default sort by this column field value) |
+| sortFn                | Function     |                     | If sortable, a custom function to sort this column |
+| filterFn              | Function     |                     | When filter is enabled, a custom function to filter this column |
+| editable              | boolean      | false               | If this column can be edited |
+| editablePlaceholder   | string       |                     | The placeholder when the value of this editable column is empty |
 
 The smd-datatable-column enables the user to use a template to define the cell content:
 Example:
