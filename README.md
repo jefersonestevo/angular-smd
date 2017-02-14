@@ -6,9 +6,9 @@ This is a simple project to design angular material components that are not yet 
 
 ### Components
 
-| Component        | Docs         | Issue          |
-|------------------|--------------|----------------|
-| datatable        | [README][1]  |              - |
+| Component        | Docs         |
+|------------------|--------------|
+| datatable        | [README][1]  |
 
  [1]: https://github.com/jefersonestevo/angular-smd/blob/master/src/app/shared/component/smd-datatable/README.md
  
