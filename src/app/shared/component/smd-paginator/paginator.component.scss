@@ -7,10 +7,16 @@
   align-items: center;
 
   & .smd-paginator-range {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+
     & .md-select-trigger {
       min-width: 50px !important;
       width: 50px !important;
-      top: -6px;
       left: 10px;
     }
   }
