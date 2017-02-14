@@ -13,3 +13,8 @@ $theme: md-dark-theme($primary, $accent);
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
 @include smd-material-theme($theme);
+
+$background: map-get($theme, background);
+.smd-content {
+  background-color: md-color($background, background) !important;
+}
