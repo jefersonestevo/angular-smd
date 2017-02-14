@@ -78,6 +78,8 @@ Angular datatable based on [Material Design Data Table](https://material.io/guid
 |------------------|--------------|---------------------|-------------------------------------------------|
 | title            | string       |                     | The header of this column                       |
 | field            | string       |                     | The field (from models) to represent this column (when a template is not used, this field will be shown in the datatable cell|
+| numeric          | boolean      | false               | If this column should be treated as numeric     |
+| titleTooltip     | string       |                     | The tooltip for the header of this column       |
 | sortable         | boolean      | false               | If this column is sorted (default sort by this column field value) |
 | sortFn           | Function     |                     | If sortable, a custom function to sort this column |
 | filterFn         | Function     |                     | When filter is enabled, a custom function to filter this column |
