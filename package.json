@@ -10,7 +10,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.build.js --progress --profile --bail"
+    "build": "rimraf dist && webpack --progress --profile --bail",
+    "build-lib": "rm -rf lib && tsc -p src"
   },
   "dependencies": {
     "@angular/common": "2.4.2",

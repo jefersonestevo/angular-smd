@@ -1,0 +1,15 @@
+/.idea
+/.idea/*
+/bin
+/src
+
+*.settings
+*.classpath
+*.project
+*/bin
+*rebel.xml
+*.iml
+.tern-project
+*.*~
+node_modules
+**.ts
