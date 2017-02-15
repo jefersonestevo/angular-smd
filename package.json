@@ -1,7 +1,7 @@
 {
   "name": "angular-smd",
   "description": "Simple Material Design components for Angular",
-  "version": "1.0.0-SNAPSHOT",
+  "version": "0.0.1-test",
   "license": "",
   "repository": {
     "type": "git",
@@ -22,17 +22,13 @@
     "@angular/platform-browser": "2.4.2",
     "@angular/platform-browser-dynamic": "2.4.2",
     "@angular/router": "3.4.2",
-    "@angular/material" :"2.0.0-beta.1",
+    "@angular/material": "2.0.0-beta.1",
     "hammerjs": "2.0.8",
-
     "rxjs": "5.0.3",
-
     "babel-core": "6.21.0",
     "babel-polyfill": "6.20.0",
-
     "reflect-metadata": "0.1.9",
     "zone.js": "0.7.4",
-
     "debug": "2.5.2",
     "dateformat": "2.0.0"
   },
@@ -41,7 +37,6 @@
     "@types/jasmine": "2.5.40",
     "@types/node": "6.0.54",
     "@types/rx": "2.5.34",
-
     "angular2-template-loader": "0.6.0",
     "awesome-typescript-loader": "3.0.0-beta.17",
     "css-loader": "0.26.1",
@@ -62,13 +57,10 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-merge": "2.0.0",
-
     "node-sass": "4.1.1",
     "sass-loader": "4.1.1",
-
     "babel-loader": "6.2.10",
     "babel-preset-es2015": "6.18.0",
-
     "rimraf": "2.5.4",
     "typescript": "2.1.4"
   }
