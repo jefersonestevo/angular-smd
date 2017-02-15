@@ -12,6 +12,10 @@ This is a simple project to design angular material components that are not yet 
 
  [1]: https://github.com/jefersonestevo/angular-smd/blob/master/src/app/shared/component/smd-datatable/README.md
  
+### Demo App
+
+[Demo App](https://rawgit.com/jefersonestevo/angular-smd/master/dist/index.html)
+ 
 ### How to run the project
 `git clone https://github.com/jefersonestevo/angular-smd.git`
 
