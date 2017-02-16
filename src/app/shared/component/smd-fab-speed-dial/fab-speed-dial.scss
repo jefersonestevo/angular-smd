@@ -1,152 +1,169 @@
 smd-fab-speed-dial {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  z-index: 20;
+  display: inline-block;
 
-  smd-fab-trigger {
-    pointer-events: auto;
-    z-index: 24;
-  }
-
-  smd-fab-actions {
+  .smd-fab-speed-dial-container {
+    position: relative;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    height: auto;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    z-index: 20;
+
+    smd-fab-trigger {
+      pointer-events: auto;
+      z-index: 24;
+    }
+
+    smd-fab-actions {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      height: auto;
+    }
   }
 
   &.smd-fling {
-    smd-fab-actions {
-      & button {
-        opacity: 1;
-        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2);
-        transition: all .3s cubic-bezier(.55,0,.55,.2);
+    .smd-fab-speed-dial-container {
+      smd-fab-actions {
+        & .smd-fab-action-item {
+          display: block;
+          opacity: 1;
+          -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+          transition: all .3s cubic-bezier(.55, 0, .55, .2);
+        }
       }
     }
   }
 
   &.smd-scale {
-    smd-fab-actions {
-      & button {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2);
-        transition: all .3s cubic-bezier(.55,0,.55,.2);
-        -webkit-transition-duration: .14286s;
-        transition-duration: .14286s;
+    .smd-fab-speed-dial-container {
+      smd-fab-actions {
+        & .smd-fab-action-item {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+          -webkit-transition: all .3s cubic-bezier(.55, 0, .55, .2);
+          transition: all .3s cubic-bezier(.55, 0, .55, .2);
+          -webkit-transition-duration: .14286s;
+          transition-duration: .14286s;
+        }
       }
     }
   }
 
   &.smd-down {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-
-    & smd-fab-trigger {
-      -webkit-box-ordinal-group: 2;
-      -webkit-order: 1;
-      order: 1;
-    }
-
-    & smd-fab-actions {
+    .smd-fab-speed-dial-container {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
       flex-direction: column;
-      -webkit-box-ordinal-group: 3;
-      -webkit-order: 2;
-      order: 2;
 
-      & button {
-        margin-top: 10px;
+      & smd-fab-trigger {
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        order: 1;
+      }
+
+      & smd-fab-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        order: 2;
+
+        & .smd-fab-action-item {
+          margin-top: 10px;
+        }
       }
     }
   }
 
   &.smd-up {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-
-    & smd-fab-trigger {
-      -webkit-box-ordinal-group: 3;
-      -webkit-order: 2;
-      order: 2;
-    }
-
-    & smd-fab-actions {
+    .smd-fab-speed-dial-container {
       -webkit-box-orient: vertical;
-      -webkit-box-direction: reverse;
-      -webkit-flex-direction: column-reverse;
-      flex-direction: column-reverse;
-      -webkit-box-ordinal-group: 2;
-      -webkit-order: 1;
-      order: 1;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      flex-direction: column;
 
-      & button {
-        margin-bottom: 10px;
+      & smd-fab-trigger {
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        order: 2;
+      }
+
+      & smd-fab-actions {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        order: 1;
+
+        & .smd-fab-action-item {
+          margin-bottom: 10px;
+        }
       }
     }
   }
 
   &.smd-left {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-
-    & smd-fab-trigger {
-      -webkit-box-ordinal-group: 3;
-      -webkit-order: 2;
-      order: 2;
-    }
-
-    & smd-fab-actions {
+    .smd-fab-speed-dial-container {
       -webkit-box-orient: horizontal;
-      -webkit-box-direction: reverse;
-      -webkit-flex-direction: row-reverse;
-      flex-direction: row-reverse;
-      -webkit-box-ordinal-group: 2;
-      -webkit-order: 1;
-      order: 1;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      flex-direction: row;
 
-      & button {
-        margin-right: 10px;
+      & smd-fab-trigger {
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        order: 2;
+      }
+
+      & smd-fab-actions {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        order: 1;
+
+        & .smd-fab-action-item {
+          margin-right: 10px;
+        }
       }
     }
   }
 
   &.smd-right {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-
-    & smd-fab-trigger {
-      -webkit-box-ordinal-group: 2;
-      -webkit-order: 1;
-      order: 1;
-    }
-
-    & smd-fab-actions {
+    .smd-fab-speed-dial-container {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
       -webkit-flex-direction: row;
       flex-direction: row;
-      -webkit-box-ordinal-group: 3;
-      -webkit-order: 2;
-      order: 2;
 
-      & button {
-        margin-left: 10px;
+      & smd-fab-trigger {
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        order: 1;
+      }
+
+      & smd-fab-actions {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+        order: 2;
+
+        & .smd-fab-action-item {
+          margin-left: 10px;
+        }
       }
     }
   }
