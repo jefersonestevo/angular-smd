@@ -8,6 +8,10 @@ md-card {
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
+
+    & > div {
+      min-height: 50px;
+    }
   }
 
   &.fab-demo-center {

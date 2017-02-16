@@ -9,12 +9,19 @@
         </md-radio-group>
     </div>
     <div>
+        Animation Mode:
+        <md-radio-group [(ngModel)]="animationMode" name="animationMode">
+            <md-radio-button value="fling">fling</md-radio-button>
+            <md-radio-button value="scale">scale</md-radio-button>
+        </md-radio-group>
+    </div>
+    <div>
         <md-slide-toggle [(ngModel)]="open">Open</md-slide-toggle>
     </div>
 </md-card>
 
 <md-card class="fab-demo-center">
-    <smd-fab-speed-dial [(open)]="open" [direction]="direction">
+    <smd-fab-speed-dial [(open)]="open" [direction]="direction" [animationMode]="animationMode">
         <smd-fab-trigger>
             <button md-fab><md-icon>check</md-icon></button>
         </smd-fab-trigger>

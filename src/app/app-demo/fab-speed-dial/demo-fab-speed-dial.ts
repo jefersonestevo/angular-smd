@@ -9,5 +9,6 @@ export class DemoFabSpeedDial {
 
     open: boolean = false;
     direction: string = 'up';
+    animationMode: string = 'fling';
 
 }

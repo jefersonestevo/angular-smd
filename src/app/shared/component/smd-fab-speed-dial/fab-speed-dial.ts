@@ -38,15 +38,24 @@ export class FabSpeedDialActions implements AfterContentInit {
 
     private clearButtons() {
         this._buttons.toArray().forEach((button, i) => {
-            this.renderer.setElementStyle(button._getHostElement(), 'opacity', '1');
-            this.renderer.setElementStyle(button._getHostElement(), 'z-index', '' + (23 - i));
+            this.changeElementStyle(button, 'z-index', '' + (23 - i));
         })
     }
 
     show() {
         if (this._buttons) {
             this._buttons.toArray().forEach((button, i) => {
-                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction('0'));
+                let transitionDelay = 0;
+                let transform;
+                if (this._parent.animationMode == 'scale') {
+                    transitionDelay = 3 + (65 * i);
+                    transform = 'scale(1)';
+                } else {
+                    transform = this.getTranslateFunction('0');
+                }
+                this.changeElementStyle(button, 'transition-delay', transitionDelay + 'ms');
+                this.changeElementStyle(button, 'opacity', '1');
+                this.changeElementStyle(button, 'transform', transform);
             })
         }
     }
@@ -54,30 +63,34 @@ export class FabSpeedDialActions implements AfterContentInit {
     hide() {
         if (this._buttons) {
             this._buttons.toArray().forEach((button, i) => {
-                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction((55 * (i + 1) - (i * 5)) + 'px'));
+                let opacity = '1';
+                let transitionDelay = 0;
+                let transform;
+                if (this._parent.animationMode == 'scale') {
+                    transitionDelay = 3 - (65 * i);
+                    transform = 'scale(0)';
+                    opacity = '0';
+                } else {
+                    transform = this.getTranslateFunction((55 * (i + 1) - (i * 5)) + 'px');
+                }
+                this.changeElementStyle(button, 'transition-delay', transitionDelay + 'ms');
+                this.changeElementStyle(button, 'opacity', opacity);
+                this.changeElementStyle(button, 'transform', transform);
             })
         }
     }
 
     private getTranslateFunction(value: string) {
-        let func;
-        switch (this._parent.direction) {
-            case 'up':
-                func = 'translateY(';
-                break;
-            case 'down':
-                func = 'translateY(-';
-                break;
-            case 'left':
-                func = 'translateX(';
-                break;
-            case 'right':
-                func = 'translateX(-';
-                break;
-        }
-        return func + value + ')';
-}
+        let dir = this._parent.direction;
+        let translateFn = (dir == 'up' || dir == 'down') ? 'translateY' : 'translateX';
+        let sign = (dir == 'down' || dir == 'right') ? '-' : '';
+        return translateFn + '(' + sign + value + ')';
+    }
 
+    private changeElementStyle(button: MdButton, style: string, value: string) {
+        // FIXME - Find a way to create a "wrapper" around the action button(s) provided by the user, so we don't change it's style tag
+        this.renderer.setElementStyle(button._getHostElement(), style, value);
+    }
 }
 
 @Component({
@@ -93,6 +106,8 @@ export class FabSpeedDialActions implements AfterContentInit {
         '[class.smd-down]': 'direction == "down"',
         '[class.smd-left]': 'direction == "left"',
         '[class.smd-right]': 'direction == "right"',
+        '[class.smd-scale]': 'animationMode == "scale"',
+        '[class.smd-fling]': 'animationMode == "fling"',
         '(click)': '_onClick()'
     }
 })
@@ -100,6 +115,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
     private isInitialized: boolean = false;
     private _direction: string = 'up';
     private _open: boolean = false;
+    private _animationMode: string = 'fling';
 
     @Input() get open() { return this._open; }
     set open(open: boolean) {
@@ -119,6 +135,15 @@ export class FabSpeedDialComponent implements AfterContentInit {
         this._direction = direction;
         if (this.isInitialized && previousDir != this._direction) {
             this.adjustActionsVisibility();
+        }
+    }
+
+    @Input() get animationMode() { return this._animationMode; }
+    set animationMode(animationMode: string) {
+        let previousAnimationMode = this._animationMode;
+        this._animationMode = animationMode;
+        if (this.isInitialized && previousAnimationMode != this._animationMode) {
+            Promise.resolve(null).then(() => this.open = false);
         }
     }
 

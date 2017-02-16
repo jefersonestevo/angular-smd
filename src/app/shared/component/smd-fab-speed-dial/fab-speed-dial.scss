@@ -18,11 +18,28 @@ smd-fab-speed-dial {
     display: -webkit-flex;
     display: flex;
     height: auto;
+  }
 
-    // FIXME
-    & button {
-      -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
-      transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
+  &.smd-fling {
+    smd-fab-actions {
+      & button {
+        opacity: 1;
+        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
+        transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
+      }
+    }
+  }
+
+  &.smd-scale {
+    smd-fab-actions {
+      & button {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2);
+        transition: all .3s cubic-bezier(.55,0,.55,.2);
+        -webkit-transition-duration: .14286s;
+        transition-duration: .14286s;
+      }
     }
   }
 
