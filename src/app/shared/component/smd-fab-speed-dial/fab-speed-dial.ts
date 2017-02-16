@@ -8,9 +8,20 @@ import {MdButton} from "@angular/material";
     selector: 'smd-fab-trigger',
     template: `
         <ng-content select="[md-fab], [mat-fab]"></ng-content>
-    `
+    `,
+    host: {
+        '(click)': '_onClick($event)'
+    }
 })
 export class FabSpeedDialTrigger {
+
+    constructor(@Inject(forwardRef(() => FabSpeedDialComponent)) private _parent: FabSpeedDialComponent) {
+    }
+
+    _onClick(event: any) {
+        this._parent.toggle();
+        event.stopPropagation();
+    }
 
 }
 
@@ -168,9 +179,8 @@ export class FabSpeedDialComponent implements AfterContentInit {
     }
 
     _onClick() {
-        if (!this.fixed) {
-            this.open = !this.open;
-            this.adjustActionsVisibility();
+        if (!this.fixed && this.open) {
+            this.open = false;
         }
     }
 
