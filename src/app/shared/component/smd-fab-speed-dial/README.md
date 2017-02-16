@@ -1,4 +1,4 @@
-# Simple Material Design Datatable
+# Simple Material Design FAB Speed Dial
 
 Angular 2 FAB Speed Dial based on [AngularJS FAB Speed Dial](https://material.angularjs.org/latest/demo/fabSpeedDial)
 
