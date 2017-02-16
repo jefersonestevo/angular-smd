@@ -10,12 +10,15 @@ import {MdButton} from "@angular/material";
         <ng-content select="[md-fab], [mat-fab]"></ng-content>
     `,
     host: {
+        '[class.smd-spin]': 'spin',
         '(click)': '_onClick($event)'
     }
 })
-export class FabSpeedDialTrigger {
+export class SmdFabSpeedDialTrigger {
 
-    constructor(@Inject(forwardRef(() => FabSpeedDialComponent)) private _parent: FabSpeedDialComponent) {
+    @Input() spin: boolean = false;
+
+    constructor(@Inject(forwardRef(() => SmdFabSpeedDialComponent)) private _parent: SmdFabSpeedDialComponent) {
     }
 
     _onClick(event: any) {
@@ -33,11 +36,11 @@ export class FabSpeedDialTrigger {
         <ng-content select="[md-mini-fab], [mat-mini-fab]"></ng-content>
     `
 })
-export class FabSpeedDialActions implements AfterContentInit {
+export class SmdFabSpeedDialActions implements AfterContentInit {
 
     @ContentChildren(MdButton) _buttons: QueryList<MdButton>;
 
-    constructor(@Inject(forwardRef(() => FabSpeedDialComponent)) private _parent: FabSpeedDialComponent, private renderer: Renderer) {
+    constructor(@Inject(forwardRef(() => SmdFabSpeedDialComponent)) private _parent: SmdFabSpeedDialComponent, private renderer: Renderer) {
     }
 
     ngAfterContentInit(): void {
@@ -118,6 +121,7 @@ export class FabSpeedDialActions implements AfterContentInit {
     styleUrls: ['fab-speed-dial.scss'],
     encapsulation: ViewEncapsulation.None,
     host: {
+        '[class.smd-opened]': 'open',
         '[class.smd-up]': 'direction == "up"',
         '[class.smd-down]': 'direction == "down"',
         '[class.smd-left]': 'direction == "left"',
@@ -127,7 +131,7 @@ export class FabSpeedDialActions implements AfterContentInit {
         '(click)': '_onClick()'
     }
 })
-export class FabSpeedDialComponent implements AfterContentInit {
+export class SmdFabSpeedDialComponent implements AfterContentInit {
     private isInitialized: boolean = false;
     private _direction: string = 'up';
     private _open: boolean = false;
@@ -167,7 +171,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
 
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    @ContentChild(FabSpeedDialActions) _childActions: FabSpeedDialActions;
+    @ContentChild(SmdFabSpeedDialActions) _childActions: SmdFabSpeedDialActions;
 
     constructor(private elRef:ElementRef, private renderer: Renderer) {}
 

@@ -10,6 +10,7 @@ export class DemoFabSpeedDial {
     private _fixed: boolean = false;
 
     open: boolean = false;
+    spin: boolean = false;
     direction: string = 'up';
     animationMode: string = 'fling';
 
@@ -29,6 +30,7 @@ export class DemoFabSpeedDial {
     export class DemoFabSpeedDial {
         open: boolean = false;
         fixed: boolean = false;
+        spin: boolean = false;
         direction: string = 'up';
         animationMode: string = 'fling';
         
@@ -43,7 +45,7 @@ export class DemoFabSpeedDial {
         <md-card-title>Click me!!</md-card-title>
         <md-slide-toggle [(ngModel)]="open">Open</md-slide-toggle>
         <smd-fab-speed-dial [(open)]="open" [direction]="direction" [animationMode]="animationMode" [fixed]="fixed">
-            <smd-fab-trigger>
+            <smd-fab-trigger [spin]="spin">
                 <button md-fab (click)="_click('trigger')"><md-icon>check</md-icon></button>
             </smd-fab-trigger>
 
@@ -58,7 +60,7 @@ export class DemoFabSpeedDial {
         <md-card-title>Hover me!!</md-card-title>
         <smd-fab-speed-dial #myFab [direction]="direction" [animationMode]="animationMode" [fixed]="fixed"
                             (mouseenter)="myFab.open = true" (mouseleave)="myFab.open = false">
-            <smd-fab-trigger>
+            <smd-fab-trigger [spin]="spin">
                 <button md-fab (click)="_click('trigger')"><md-icon>check</md-icon></button>
             </smd-fab-trigger>
 

@@ -15,9 +15,9 @@ import {
     SmdDataTableCellComponent,
     SmdDatatableDialogChangeValue,
     SmdPaginatorComponent,
-    FabSpeedDialTrigger,
-    FabSpeedDialActions,
-    FabSpeedDialComponent
+    SmdFabSpeedDialTrigger,
+    SmdFabSpeedDialActions,
+    SmdFabSpeedDialComponent
 } from "./component";
 
 let COMPONENTS = [
@@ -30,9 +30,9 @@ let COMPONENTS = [
     SmdDataTableCellComponent,
     SmdDatatableDialogChangeValue,
     SmdPaginatorComponent,
-    FabSpeedDialTrigger,
-    FabSpeedDialActions,
-    FabSpeedDialComponent
+    SmdFabSpeedDialTrigger,
+    SmdFabSpeedDialActions,
+    SmdFabSpeedDialComponent
 ];
 
 let IMPORTS = [

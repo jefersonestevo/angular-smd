@@ -11,6 +11,11 @@ md-card {
 
     & > div {
       min-height: 50px;
+
+      & md-slide-toggle {
+        display: inline-block;
+        margin-right: 10px;
+      }
     }
   }
 }

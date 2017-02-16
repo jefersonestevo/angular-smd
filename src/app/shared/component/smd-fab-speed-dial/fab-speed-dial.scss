@@ -1,6 +1,17 @@
 smd-fab-speed-dial {
   display: inline-block;
 
+  &.smd-opened {
+    .smd-fab-speed-dial-container {
+      smd-fab-trigger {
+        &.smd-spin {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
   .smd-fab-speed-dial-container {
     position: relative;
     display: -webkit-box;
@@ -14,6 +25,11 @@ smd-fab-speed-dial {
     smd-fab-trigger {
       pointer-events: auto;
       z-index: 24;
+
+      &.smd-spin {
+        -webkit-transition: all .6s cubic-bezier(.4,0,.2,1);
+        transition: all .6s cubic-bezier(.4,0,.2,1);
+      }
     }
 
     smd-fab-actions {
