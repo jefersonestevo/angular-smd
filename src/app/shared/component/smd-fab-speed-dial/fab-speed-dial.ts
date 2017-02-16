@@ -28,6 +28,15 @@ export class FabSpeedDialActions implements AfterContentInit {
     }
 
     ngAfterContentInit(): void {
+        this._buttons.changes.subscribe(() => {
+            this.clearButtons();
+            this._parent.adjustActionsVisibility();
+        });
+
+        this.clearButtons();
+    }
+
+    private clearButtons() {
         this._buttons.toArray().forEach((button, i) => {
             this.renderer.setElementStyle(button._getHostElement(), 'opacity', '1');
             this.renderer.setElementStyle(button._getHostElement(), 'z-index', '' + (23 - i));
@@ -37,7 +46,7 @@ export class FabSpeedDialActions implements AfterContentInit {
     show() {
         if (this._buttons) {
             this._buttons.toArray().forEach((button, i) => {
-                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction((55 * (i + 1) - (i * 5)) + 'px'));
+                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction('0'));
             })
         }
     }
@@ -45,7 +54,7 @@ export class FabSpeedDialActions implements AfterContentInit {
     hide() {
         if (this._buttons) {
             this._buttons.toArray().forEach((button, i) => {
-                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction('0'));
+                this.renderer.setElementStyle(button._getHostElement(), 'transform', this.getTranslateFunction((55 * (i + 1) - (i * 5)) + 'px'));
             })
         }
     }
@@ -99,7 +108,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
         if (previousOpen != this._open) {
             this.openChange.emit(this._open);
             if (this.isInitialized) {
-                this.showButtons();
+                this.adjustActionsVisibility();
             }
         }
     }
@@ -109,7 +118,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
         let previousDir = this._direction;
         this._direction = direction;
         if (this.isInitialized && previousDir != this._direction) {
-            this.showButtons();
+            this.adjustActionsVisibility();
         }
     }
 
@@ -121,19 +130,19 @@ export class FabSpeedDialComponent implements AfterContentInit {
 
     ngAfterContentInit(): void {
         this.isInitialized = true;
-        this.showButtons();
+        this.adjustActionsVisibility();
     }
 
     _onClick() {
         this.open = !this.open;
-        this.showButtons();
+        this.adjustActionsVisibility();
     }
 
-    private showButtons() {
+    adjustActionsVisibility() {
         if (this.open) {
-            this._childActions.hide();
-        } else {
             this._childActions.show();
+        } else {
+            this._childActions.hide();
         }
     }
 }
