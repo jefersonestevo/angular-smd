@@ -1,6 +1,6 @@
 # Simple Material Design Datatable
 
-Angular datatable based on [Material Design Data Table](https://material.io/guidelines/components/data-tables.html)
+Angular 2 datatable based on [Material Design Data Table](https://material.io/guidelines/components/data-tables.html)
 
 ### Usage
 
