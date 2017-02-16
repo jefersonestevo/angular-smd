@@ -19,8 +19,10 @@ export class FabSpeedDialTrigger {
     }
 
     _onClick(event: any) {
-        this._parent.toggle();
-        event.stopPropagation();
+        if (!this._parent.fixed) {
+            this._parent.toggle();
+            event.stopPropagation();
+        }
     }
 
 }
