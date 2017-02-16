@@ -24,8 +24,8 @@ smd-fab-speed-dial {
     smd-fab-actions {
       & button {
         opacity: 1;
-        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
-        transition: all .3s cubic-bezier(.55,0,.55,.2) !important;
+        -webkit-transition: all .3s cubic-bezier(.55,0,.55,.2);
+        transition: all .3s cubic-bezier(.55,0,.55,.2);
       }
     }
   }

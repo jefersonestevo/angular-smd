@@ -1,3 +1,7 @@
+<md-toolbar color="accent">
+    Component - Fab Speed Dial
+</md-toolbar>
+
 <md-card class="fab-demo-actions">
     <div>
         Direction:
@@ -16,20 +20,58 @@
         </md-radio-group>
     </div>
     <div>
-        <md-slide-toggle [(ngModel)]="open">Open</md-slide-toggle>
+        <md-slide-toggle [(ngModel)]="fixed">Fixed</md-slide-toggle>
     </div>
 </md-card>
 
-<md-card class="fab-demo-center">
-    <smd-fab-speed-dial [(open)]="open" [direction]="direction" [animationMode]="animationMode">
-        <smd-fab-trigger>
-            <button md-fab><md-icon>check</md-icon></button>
-        </smd-fab-trigger>
+<div class="container-fab-demo">
+    <md-card>
+        <md-card-title>Click me!!</md-card-title>
+        <md-slide-toggle [(ngModel)]="open">Open</md-slide-toggle>
+        <smd-fab-speed-dial [(open)]="open" [direction]="direction" [animationMode]="animationMode" [fixed]="fixed">
+            <smd-fab-trigger>
+                <button md-fab><md-icon>check</md-icon></button>
+            </smd-fab-trigger>
 
-        <smd-fab-actions>
-            <button md-mini-fab><md-icon>add</md-icon></button>
-            <button md-mini-fab><md-icon>edit</md-icon></button>
-            <button md-mini-fab><md-icon>menu</md-icon></button>
-        </smd-fab-actions>
-    </smd-fab-speed-dial>
+            <smd-fab-actions>
+                <button md-mini-fab><md-icon>add</md-icon></button>
+                <button md-mini-fab><md-icon>edit</md-icon></button>
+                <button md-mini-fab><md-icon>menu</md-icon></button>
+            </smd-fab-actions>
+        </smd-fab-speed-dial>
+    </md-card>
+    <md-card>
+        <md-card-title>Hover me!!</md-card-title>
+        <smd-fab-speed-dial #myFab [direction]="direction" [animationMode]="animationMode" [fixed]="fixed"
+                            (mouseenter)="myFab.open = true" (mouseleave)="myFab.open = false">
+            <smd-fab-trigger>
+                <button md-fab><md-icon>check</md-icon></button>
+            </smd-fab-trigger>
+
+            <smd-fab-actions>
+                <button md-mini-fab><md-icon>add</md-icon></button>
+                <button md-mini-fab><md-icon>edit</md-icon></button>
+                <button md-mini-fab><md-icon>menu</md-icon></button>
+            </smd-fab-actions>
+        </smd-fab-speed-dial>
+    </md-card>
+</div>
+
+<md-card>
+    <md-tab-group class="demo-tab-group">
+        <md-tab label="Html">
+            <div class="tab-content">
+                <pre>
+                    {{htmlExample}}
+                </pre>
+            </div>
+        </md-tab>
+        <md-tab label="TS">
+            <div class="tab-content">
+                <pre>
+                    {{tsExample}}
+                </pre>
+            </div>
+        </md-tab>
+    </md-tab-group>
 </md-card>

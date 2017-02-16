@@ -1,3 +1,7 @@
+smd-fab-speed-dial {
+  background-color: #c3c3c3 !important;
+}
+
 md-card {
   margin: 30px;
 
@@ -14,13 +18,24 @@ md-card {
     }
   }
 
-  &.fab-demo-center {
-    padding: 20px;
-    min-width: 300px;
-    min-height: 300px;
-    width: 300px;
+
+}
+
+.container-fab-demo {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+
+  & md-card {
     height: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 300px;
   }
+
 }

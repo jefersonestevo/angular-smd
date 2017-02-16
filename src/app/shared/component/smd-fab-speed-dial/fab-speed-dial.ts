@@ -117,6 +117,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
     private _open: boolean = false;
     private _animationMode: string = 'fling';
 
+    @Input() fixed: boolean = false;
     @Input() get open() { return this._open; }
     set open(open: boolean) {
         let previousOpen = this._open;
@@ -143,6 +144,7 @@ export class FabSpeedDialComponent implements AfterContentInit {
         let previousAnimationMode = this._animationMode;
         this._animationMode = animationMode;
         if (this.isInitialized && previousAnimationMode != this._animationMode) {
+            // To start another detect lifecycle and force the "close" on the action buttons
             Promise.resolve(null).then(() => this.open = false);
         }
     }
@@ -159,8 +161,10 @@ export class FabSpeedDialComponent implements AfterContentInit {
     }
 
     _onClick() {
-        this.open = !this.open;
-        this.adjustActionsVisibility();
+        if (!this.fixed) {
+            this.open = !this.open;
+            this.adjustActionsVisibility();
+        }
     }
 
     adjustActionsVisibility() {
