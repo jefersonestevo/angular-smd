@@ -1,11 +1,15 @@
 import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {APP_BASE_HREF} from "@angular/common";
-import {DemoDatatableView} from "./app-demo/datatable/demo-datatable";
+import {DemoDatatable} from "./app-demo/datatable/demo-datatable";
+import {DemoFabSpeedDial} from "./app-demo/fab-speed-dial/demo-fab-speed-dial";
+import {DemoHomeComponent} from "./app-demo/demo.home";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo:'/demo-datatable', pathMatch: 'full' },
-  { path:'demo-datatable', component: DemoDatatableView }
+  { path: '', redirectTo:'/demo-home', pathMatch: 'full' },
+  { path: 'demo-home', component: DemoHomeComponent },
+  { path: 'demo-datatable', component: DemoDatatable },
+  { path: 'demo-fab-speed-dial', component: DemoFabSpeedDial }
 ];
 
 export const appRoutingProviders: any[] = [

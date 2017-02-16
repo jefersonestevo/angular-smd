@@ -1,0 +1,28 @@
+<md-card class="fab-demo-actions">
+    <div>
+        Direction:
+        <md-radio-group [(ngModel)]="direction" name="direction">
+            <md-radio-button value="up">Up</md-radio-button>
+            <md-radio-button value="down">Down</md-radio-button>
+            <md-radio-button value="left">Left</md-radio-button>
+            <md-radio-button value="right">Right</md-radio-button>
+        </md-radio-group>
+    </div>
+    <div>
+        <md-slide-toggle [(ngModel)]="open">Open</md-slide-toggle>
+    </div>
+</md-card>
+
+<md-card class="fab-demo-center">
+    <smd-fab-speed-dial [(open)]="open" [direction]="direction">
+        <smd-fab-trigger>
+            <button md-fab><md-icon>check</md-icon></button>
+        </smd-fab-trigger>
+
+        <smd-fab-actions>
+            <button md-mini-fab><md-icon>add</md-icon></button>
+            <button md-mini-fab><md-icon>edit</md-icon></button>
+            <button md-mini-fab><md-icon>menu</md-icon></button>
+        </smd-fab-actions>
+    </smd-fab-speed-dial>
+</md-card>

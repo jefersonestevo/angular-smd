@@ -1,0 +1,22 @@
+md-card {
+  margin: 30px;
+
+  &.fab-demo-actions {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &.fab-demo-center {
+    padding: 20px;
+    min-width: 300px;
+    min-height: 300px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

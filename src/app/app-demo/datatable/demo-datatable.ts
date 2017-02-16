@@ -16,7 +16,7 @@ export class SampleModel {
     templateUrl: './demo-datatable.html',
     styleUrls: ['./demo-datatable.scss']
 })
-export class DemoDatatableView implements OnInit {
+export class DemoDatatable implements OnInit {
 
     models: SampleModel[];
 
