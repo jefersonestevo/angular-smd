@@ -163,6 +163,10 @@ export class FabSpeedDialComponent implements AfterContentInit {
         this.adjustActionsVisibility();
     }
 
+    public toggle() {
+        this.open = !this.open;
+    }
+
     _onClick() {
         if (!this.fixed) {
             this.open = !this.open;
