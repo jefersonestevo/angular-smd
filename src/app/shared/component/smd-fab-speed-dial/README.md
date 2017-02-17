@@ -31,7 +31,7 @@ Angular 2 FAB Speed Dial based on [AngularJS FAB Speed Dial](https://material.an
 
 | Property         | Type         | Default             | Description                                     |
 |------------------|--------------|---------------------|-------------------------------------------------|
-| spin             | boolean      | false               | Enables the rotation (360dg) of the trigger action when the speed dial is opened |
+| spin             | boolean      | false               | Enables the rotation (360dg) of the trigger action when the speed dial is opening |
   
 ### TODO List
 

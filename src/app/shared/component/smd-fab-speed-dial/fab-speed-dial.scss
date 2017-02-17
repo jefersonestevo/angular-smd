@@ -1,3 +1,29 @@
+@mixin smd-fab-speed-dial-container($box-orient, $flex-direction) {
+  -webkit-box-orient: $box-orient;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: $flex-direction;
+  flex-direction: $flex-direction;  
+}
+
+@mixin smd-fab-speed-dial-box-order($ordinal-group, $order) {
+  -webkit-box-ordinal-group: $ordinal-group;
+  -webkit-order: $order;
+  order: $order;
+}
+
+@mixin smd-fab-speed-dial-actions($box-orient, $box-direction, $flex-direction, $ordinal-group, $order, $action-item-margin-direction) {
+  -webkit-box-orient: $box-orient;
+  -webkit-box-direction: $box-direction;
+  -webkit-flex-direction: $flex-direction;
+  flex-direction: $flex-direction;
+
+  @include smd-fab-speed-dial-box-order($ordinal-group, $order);
+
+  & .smd-fab-action-item {
+    margin-#{$action-item-margin-direction}: 10px;
+  }
+}
+
 smd-fab-speed-dial {
   display: inline-block;
 
@@ -70,118 +96,59 @@ smd-fab-speed-dial {
 
   &.smd-down {
     .smd-fab-speed-dial-container {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      flex-direction: column;
+      @include smd-fab-speed-dial-container(vertical, column);
 
       & smd-fab-trigger {
-        -webkit-box-ordinal-group: 2;
-        -webkit-order: 1;
-        order: 1;
+        @include smd-fab-speed-dial-box-order(2, 1);
       }
 
       & smd-fab-actions {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-ordinal-group: 3;
-        -webkit-order: 2;
-        order: 2;
-
-        & .smd-fab-action-item {
-          margin-top: 10px;
-        }
+        @include smd-fab-speed-dial-actions(vertical, normal, column, 3, 2, top);
       }
     }
   }
 
   &.smd-up {
     .smd-fab-speed-dial-container {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      flex-direction: column;
+      @include smd-fab-speed-dial-container(vertical, column);
 
       & smd-fab-trigger {
-        -webkit-box-ordinal-group: 3;
-        -webkit-order: 2;
-        order: 2;
+        @include smd-fab-speed-dial-box-order(3, 2);
       }
 
       & smd-fab-actions {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: reverse;
-        -webkit-flex-direction: column-reverse;
-        flex-direction: column-reverse;
-        -webkit-box-ordinal-group: 2;
-        -webkit-order: 1;
-        order: 1;
-
-        & .smd-fab-action-item {
-          margin-bottom: 10px;
-        }
+        @include smd-fab-speed-dial-actions(vertical, reverse, column-reverse, 2, 1, bottom);
       }
     }
   }
 
   &.smd-left {
     .smd-fab-speed-dial-container {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-      flex-direction: row;
+      @include smd-fab-speed-dial-container(horizontal, row);
 
       & smd-fab-trigger {
-        -webkit-box-ordinal-group: 3;
-        -webkit-order: 2;
-        order: 2;
+        @include smd-fab-speed-dial-box-order(3, 2);
       }
 
       & smd-fab-actions {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-        -webkit-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        -webkit-box-ordinal-group: 2;
-        -webkit-order: 1;
-        order: 1;
-
-        & .smd-fab-action-item {
-          margin-right: 10px;
-        }
+        @include smd-fab-speed-dial-actions(horizontal, normal, row-reverse, 2, 1, right);
       }
     }
   }
 
   &.smd-right {
     .smd-fab-speed-dial-container {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-      flex-direction: row;
+      @include smd-fab-speed-dial-container(horizontal, row);
 
       & smd-fab-trigger {
-        -webkit-box-ordinal-group: 2;
-        -webkit-order: 1;
-        order: 1;
+        @include smd-fab-speed-dial-box-order(2, 1);
       }
 
       & smd-fab-actions {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-        -webkit-box-ordinal-group: 3;
-        -webkit-order: 2;
-        order: 2;
-
-        & .smd-fab-action-item {
-          margin-left: 10px;
-        }
+        @include smd-fab-speed-dial-actions(horizontal, normal, row, 3, 2, left);
       }
     }
   }
 
 }
+
