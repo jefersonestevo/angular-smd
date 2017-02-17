@@ -2,10 +2,10 @@
 @import "../all-theme";
 
 // Define a theme.
-$primary: md-palette($md-deep-purple);
-$accent:  md-palette($md-amber, A200, A100, A400);
+$primary: mat-palette($mat-deep-purple);
+$accent:  mat-palette($mat-amber, A200, A100, A400);
 
-$theme: md-light-theme($primary, $accent);
+$theme: mat-light-theme($primary, $accent);
 
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
@@ -13,5 +13,5 @@ $theme: md-light-theme($primary, $accent);
 
 $background: map-get($theme, background);
 .smd-content {
-  background-color: md-color($background, background);
+  background-color: mat-color($background, background);
 }

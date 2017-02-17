@@ -18,7 +18,7 @@
     .smd-paginator-range {
       select {
         border: none;
-        border-bottom-color: md-color($foreground, divider);
+        border-bottom-color: mat-color($foreground, divider);
 
         option {
           color: #000000;
@@ -29,11 +29,11 @@
     .smd-paginator-navigation {
 
       button {
-        color: md-color($foreground, text);
+        color: mat-color($foreground, text);
         background: transparent;
 
         &[disabled] {
-          color: md-color($foreground, disabled-text);
+          color: mat-color($foreground, disabled-text);
         }
       }
 

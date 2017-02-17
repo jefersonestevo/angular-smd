@@ -43,7 +43,7 @@ export class SmdDataRowModel {
         <h1 *ngIf="title" md-dialog-title>{{title}}</h1>
         <md-dialog-content>
             <md-input-container>
-                <input type="text" md-input [placeholder]="placeholder" [(ngModel)]="value">
+                <input type="text" mdInput [placeholder]="placeholder" [(ngModel)]="value">
             </md-input-container>
         </md-dialog-content>
         <md-dialog-actions>
@@ -297,7 +297,7 @@ export class SmdContextualDatatableButton {
         <span>
             <div>
                 <md-input-container *ngIf="enableFilter && _selectedRowsLength() == 0">
-                  <input md-input [placeholder]="filterLabel" [(ngModel)]="filterValue" (keyup)="_onFilter($event)">
+                  <input mdInput [placeholder]="filterLabel" [(ngModel)]="filterValue" (keyup)="_onFilter($event)">
                 </md-input-container>
                 <ng-content select="smd-datatable-contextual-button"></ng-content>
             </div>

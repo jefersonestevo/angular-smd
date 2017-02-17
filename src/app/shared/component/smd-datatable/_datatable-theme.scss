@@ -5,8 +5,8 @@
   $warn: map-get($theme, warn);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
-  $base-border-color: md-color($foreground, divider);
-  $base-sorted-icon-selected: md-color($foreground, text);
+  $base-border-color: mat-color($foreground, divider);
+  $base-sorted-icon-selected: mat-color($foreground, text);
 
   smd-datatable {
     .smd-data-table {
@@ -14,7 +14,7 @@
       background-color: transparent;
 
       tr {
-        color: md-color($foreground, text);
+        color: mat-color($foreground, text);
       }
 
       thead {
@@ -23,12 +23,12 @@
 
         tr {
           th {
-            color: md-color($foreground, text);
+            color: mat-color($foreground, text);
 
             &.smd-datatable-column-sortable {
               & > span {
                 &:before {
-                  color: md-color($foreground, hint-text);
+                  color: mat-color($foreground, hint-text);
                 }
 
                 &.smd-sorted-asc {
@@ -51,28 +51,28 @@
 
       tbody {
         tr {
-          color: md-color($foreground, text);
+          color: mat-color($foreground, text);
 
           border-top-color: $base-border-color;
           border-bottom-color: $base-border-color;
 
           &:hover {
-            background-color: md-color($background, hover);
+            background-color: mat-color($background, hover);
           }
 
           &.is-selected {
             background-color: #F5F5F5;
-            color: md-color($md-light-theme-foreground, text);
+            color: mat-color($mat-light-theme-foreground, text);
           }
 
           & .smd-column-title {
-            color: md-color($foreground, text);
+            color: mat-color($foreground, text);
           }
 
           td {
             &.smd-editable {
               & .smd-editable-field-placeholder {
-                color: md-color($foreground, hint-text);
+                color: mat-color($foreground, hint-text);
               }
             }
           }
@@ -83,7 +83,7 @@
         tr {
           td {
             smd-paginator {
-              color: md-color($foreground, secondary-text);
+              color: mat-color($foreground, secondary-text);
             }
           }
         }
@@ -94,13 +94,13 @@
 
         & > div {
           button {
-            color: md-color($foreground, text);
+            color: mat-color($foreground, text);
           }
         }
 
         &.is-selected {
-          background-color: md-color($accent, 50);
-          color: md-color($primary);
+          background-color: mat-color($accent, 50);
+          color: mat-color($primary);
         }
       }
     }

@@ -2,13 +2,13 @@
 @import "../all-theme";
 
 // Include non-theme styles for core.
-@include md-core();
+@include mat-core();
 
 // Define a theme.
-$primary: md-palette($md-purple, 700, 500, 800);
-$accent:  md-palette($md-green, A200, A100, A400);
+$primary: mat-palette($mat-purple, 700, 500, 800);
+$accent:  mat-palette($mat-green, A200, A100, A400);
 
-$theme: md-dark-theme($primary, $accent);
+$theme: mat-dark-theme($primary, $accent);
 
 // Include all theme styles for the components.
 @include angular-material-theme($theme);
@@ -16,5 +16,5 @@ $theme: md-dark-theme($primary, $accent);
 
 $background: map-get($theme, background);
 .smd-content {
-  background-color: md-color($background, background) !important;
+  background-color: mat-color($background, background) !important;
 }
