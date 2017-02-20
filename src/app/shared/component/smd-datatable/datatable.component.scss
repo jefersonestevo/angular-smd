@@ -199,6 +199,12 @@ smd-datatable {
           }
         }
 
+        md-input-container {
+          & .mat-input-wrapper {
+            margin: 0;
+          }
+        }
+
         & > div, & > span {
           height: 100%;
           display: flex;
