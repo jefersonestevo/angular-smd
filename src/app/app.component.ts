@@ -37,6 +37,9 @@ import "../../public/src/styles.scss";
               <md-list-item routerLink="demo-fab-speed-dial" (click)="sidenav.close()">
                 <p md-line>Fab Speed Dial</p>
               </md-list-item>
+              <md-list-item routerLink="demo-bottom-nav" (click)="sidenav.close()">
+                <p md-line>Bottom Nav</p>
+              </md-list-item>
             </md-list>
           </md-sidenav>
         </md-sidenav-container>

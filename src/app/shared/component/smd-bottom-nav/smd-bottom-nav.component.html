@@ -1,0 +1,20 @@
+<div class="smd-bottom-nav-content">
+    <template ngFor let-nav [ngForOf]="navs" let-i="index">
+        <div class="smd-bottom-nav-item">
+            <div [@itemState]="nav.state">
+                <template [ngTemplateOutlet]="nav.content" *ngIf="i == currentIndex"></template>
+            </div>
+        </div>
+    </template>
+</div>
+<div class="smd-bottom-nav-actions">
+    <template ngFor let-nav [ngForOf]="navs" let-i="index">
+        <div class="smd-bottom-nav-action" (click)="setActiveIndex(i)"
+            [class.smd-bottom-nav-active]="i == currentIndex">
+            <template [ngTemplateOutlet]="nav.label?.template"></template>
+        </div>
+    </template>
+</div>
+<template>
+    <ng-content select="smd-bottom-nav"></ng-content>
+</template>

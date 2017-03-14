@@ -5,11 +5,13 @@ import {ComponentsModule} from "./shared/components.module";
 import {DemoDatatable} from "./app-demo/datatable/demo-datatable";
 import {DemoHomeComponent} from "./app-demo/demo.home";
 import {DemoFabSpeedDial} from "./app-demo/fab-speed-dial/demo-fab-speed-dial";
+import {DemoBottomNav} from "./app-demo/bottom-nav/demo-bottom-nav";
 
 let COMPONENTS = [
     DemoHomeComponent,
     DemoDatatable,
     DemoFabSpeedDial,
+    DemoBottomNav,
     AppComponent
 ];
 

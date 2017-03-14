@@ -17,7 +17,10 @@ import {
     SmdPaginatorComponent,
     SmdFabSpeedDialTrigger,
     SmdFabSpeedDialActions,
-    SmdFabSpeedDialComponent
+    SmdFabSpeedDialComponent,
+    SmdBottomNavLabelDirective,
+    SmdBottomNavGroupComponent,
+    SmdBottomNavComponent
 } from "./component";
 
 let COMPONENTS = [
@@ -32,7 +35,10 @@ let COMPONENTS = [
     SmdPaginatorComponent,
     SmdFabSpeedDialTrigger,
     SmdFabSpeedDialActions,
-    SmdFabSpeedDialComponent
+    SmdFabSpeedDialComponent,
+    SmdBottomNavLabelDirective,
+    SmdBottomNavGroupComponent,
+    SmdBottomNavComponent
 ];
 
 let IMPORTS = [
