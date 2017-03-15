@@ -31,7 +31,16 @@ smd-bottom-nav-group {
     height: 56px;
 
     .smd-bottom-nav-action {
+      position: relative;
       cursor: pointer;
+
+      .smd-ripple-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
 
       flex: 1 0 80px;
       max-width: 168px;

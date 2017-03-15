@@ -51,7 +51,7 @@ export class SmdBottomNavComponent {
             state('inactive', style({opacity: '0'})),
             state('active', style({opacity: '1'})),
             transition('* => *', [
-                animate('500ms ease-in-out')
+                animate('1s ease-in-out')
             ])
         ])
     ]
