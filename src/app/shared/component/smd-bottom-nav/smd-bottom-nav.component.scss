@@ -30,6 +30,8 @@ smd-bottom-nav-group {
 
     height: 56px;
 
+    transition: background-color 0.3s ease-in;
+
     .smd-bottom-nav-action {
       position: relative;
       cursor: pointer;
@@ -51,7 +53,6 @@ smd-bottom-nav-group {
       justify-content: center;
       align-content: center;
       align-items: center;
-      background-color: #d3d3d3;
 
       padding: 8px 12px 0 12px;
 
@@ -60,8 +61,6 @@ smd-bottom-nav-group {
       }
 
       &.smd-bottom-nav-active {
-        background-color: #939393;
-
         padding-top: 6px;
 
         & > span {

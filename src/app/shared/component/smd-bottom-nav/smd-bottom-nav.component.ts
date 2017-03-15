@@ -11,7 +11,7 @@ import {
     state,
     style,
     transition,
-    animate, OnInit,
+    animate, OnInit, Input,
 } from "@angular/core";
 
 @Directive({
@@ -36,6 +36,8 @@ export class SmdBottomNavComponent {
 
     public state:'active' | 'inactive';
 
+    @Input() public color: string = 'primary';
+
     @ContentChild(SmdBottomNavLabelDirective) label: SmdBottomNavLabelDirective;
     @ViewChild('contentTemplate') content: TemplateRef<void>;
 
@@ -46,6 +48,9 @@ export class SmdBottomNavComponent {
     templateUrl: './smd-bottom-nav.component.html',
     styleUrls: ['./smd-bottom-nav.component.scss'],
     encapsulation: ViewEncapsulation.None,
+    host: {
+        '[class]': '_getClasses()'
+    },
     animations: [
         trigger('itemState', [
             state('inactive', style({opacity: '0'})),
@@ -84,6 +89,14 @@ export class SmdBottomNavGroupComponent implements OnInit {
     setActiveIndex(index:number) {
         let previousIndex = this.currentIndex;
         this.currentIndex = index;
+    }
+
+    _getClasses() {
+        return `ps-${this._getSelectedItem(this.currentIndex).color}`
+    }
+
+    _getSelectedItem(index:number) {
+        return this.navs.find((item, i) => i == index);
     }
 
 }

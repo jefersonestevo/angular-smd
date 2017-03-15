@@ -1,0 +1,55 @@
+@import "~@angular/material/core/theming/palette";
+
+@mixin smd-bottom-nav-color($color, $default: 300, $darker: 500) {
+  .smd-bottom-nav-actions {
+    background-color: mat-color($color, $default);
+
+    .smd-bottom-nav-action {
+      color: mat-contrast($color, $darker);
+
+      &.smd-bottom-nav-active {
+        background-color: mat-color($color, $darker);
+      }
+    }
+  }
+}
+
+@mixin smd-bottom-nav-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  smd-bottom-nav-group {
+    background-color: transparent;
+
+    &.ps-primary {
+      @include smd-bottom-nav-color($primary, 500, 700);
+    }
+
+    &.ps-accent {
+      @include smd-bottom-nav-color($accent, 500, 700);
+    }
+
+    &.ps-warn {
+      @include smd-bottom-nav-color($warn, 500, 700);
+    }
+
+    &.ps-green {
+      @include smd-bottom-nav-color($mat-green);
+    }
+
+    &.ps-blue {
+      @include smd-bottom-nav-color($mat-blue);
+    }
+
+    &.ps-red {
+      @include smd-bottom-nav-color($mat-red);
+    }
+
+    &.ps-yellow {
+      @include smd-bottom-nav-color($mat-yellow);
+    }
+  }
+}

@@ -1,7 +1,9 @@
 @import '../../src/app/shared/component/smd-datatable/datatable-theme';
 @import "../../src/app/shared/component/smd-paginator/paginator-theme";
+@import "../../src/app/shared/component/smd-bottom-nav/smd-bottom-nav-theme";
 
 @mixin smd-material-theme($theme) {
   @include smd-datatable-theme($theme);
   @include smd-paginator-theme($theme);
+  @include smd-bottom-nav-theme($theme);
 }
