@@ -12,7 +12,7 @@
         <div class="smd-bottom-nav-action" (click)="setActiveIndex(i)"
             [class.smd-bottom-nav-active]="i == currentIndex" #item>
             <template [ngTemplateOutlet]="nav.label?.template"></template>
-            <div class="smd-ripple-area" md-ripple [mdRippleSpeedFactor]="1" [mdRippleTrigger]="item"></div>
+            <div class="smd-ripple-area" md-ripple [mdRippleTrigger]="item"></div>
         </div>
     </template>
 </div>

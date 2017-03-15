@@ -1,0 +1,21 @@
+smd-bottom-nav-group {
+  height: 100vh;
+
+  &.smd-myCustomColor {
+
+    .smd-bottom-nav-actions {
+      background-color: #d3d3d3;
+
+      .smd-bottom-nav-action {
+        color: #000000;
+
+        &.smd-bottom-nav-active {
+          color: #ffffff;
+          background-color: #838383;
+        }
+      }
+    }
+
+  }
+
+}

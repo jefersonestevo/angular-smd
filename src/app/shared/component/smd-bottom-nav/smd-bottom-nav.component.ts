@@ -92,7 +92,7 @@ export class SmdBottomNavGroupComponent implements OnInit {
     }
 
     _getClasses() {
-        return `ps-${this._getSelectedItem(this.currentIndex).color}`
+        return `smd-${this._getSelectedItem(this.currentIndex).color}`
     }
 
     _getSelectedItem(index:number) {

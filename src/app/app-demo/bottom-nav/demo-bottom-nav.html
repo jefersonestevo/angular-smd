@@ -1,7 +1,3 @@
-<md-toolbar color="accent">
-    Component - Bottom Nav
-</md-toolbar>
-
 <smd-bottom-nav-group>
 
     <smd-bottom-nav color="primary">
@@ -11,8 +7,8 @@
         </template>
 
         <md-card>
-            <md-card-title>Teste Search</md-card-title>
-            Card Teste Search
+            <md-card-title>Test Search</md-card-title>
+            Card Test Search
         </md-card>
     </smd-bottom-nav>
 
@@ -23,8 +19,20 @@
         </template>
 
         <md-card>
-            <md-card-title>Teste Add</md-card-title>
-            Card Teste Add
+            <md-card-title>Test Add</md-card-title>
+            Card Test Add
+        </md-card>
+    </smd-bottom-nav>
+
+    <smd-bottom-nav color="myCustomColor">
+        <template smdBottomNavLabel>
+            <md-icon>place</md-icon>
+            <span>Place</span>
+        </template>
+
+        <md-card>
+            <md-card-title>Test Place</md-card-title>
+            Card Test Place
         </md-card>
     </smd-bottom-nav>
 
@@ -35,8 +43,14 @@
         </template>
 
         <md-card>
-            <md-card-title>Teste Close</md-card-title>
-            Card Teste Close
+            <md-card-title>Test Close</md-card-title>
+
+            <md-list>
+                <md-list-item *ngFor="let item of items">
+                    Item: {{item}}
+                </md-list-item>
+            </md-list>
+
         </md-card>
     </smd-bottom-nav>
 
