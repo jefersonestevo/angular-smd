@@ -1,0 +1,8 @@
+
+@mixin smd-error-message-theme($theme) {
+    $warn: map-get($theme, warn);
+
+    smd-error-messages {
+        color: mat-color($warn);
+    }
+}

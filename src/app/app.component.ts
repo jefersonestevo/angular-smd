@@ -40,6 +40,9 @@ import "../../public/src/styles.scss";
               <md-list-item routerLink="demo-bottom-nav" (click)="sidenav.close()">
                 <p md-line>Bottom Nav</p>
               </md-list-item>
+              <md-list-item routerLink="demo-error-messages" (click)="sidenav.close()">
+                <p md-line>Error Messages</p>
+              </md-list-item>
             </md-list>
           </md-sidenav>
         </md-sidenav-container>

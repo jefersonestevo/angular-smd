@@ -1,6 +1,6 @@
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {CommonModule} from "@angular/common";
 import {MaterialModule} from "@angular/material";
@@ -20,7 +20,9 @@ import {
     SmdFabSpeedDialComponent,
     SmdBottomNavLabelDirective,
     SmdBottomNavGroupComponent,
-    SmdBottomNavComponent
+    SmdBottomNavComponent,
+    SmdErrorMessageComponent,
+    SmdErrorMessagesComponent
 } from "./component";
 
 let COMPONENTS = [
@@ -38,13 +40,16 @@ let COMPONENTS = [
     SmdFabSpeedDialComponent,
     SmdBottomNavLabelDirective,
     SmdBottomNavGroupComponent,
-    SmdBottomNavComponent
+    SmdBottomNavComponent,
+    SmdErrorMessageComponent,
+    SmdErrorMessagesComponent
 ];
 
 let IMPORTS = [
     CommonModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     MaterialModule.forRoot()
 ];
@@ -64,6 +69,7 @@ export class ComponentsModule {
             CommonModule,
             HttpModule,
             FormsModule,
+            ReactiveFormsModule,
             BrowserModule,
             MaterialModule.forRoot(),
             ComponentsModule,

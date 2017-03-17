@@ -1,0 +1,14 @@
+smd-error-messages {
+    display: block;
+    font-size: 12px;
+    min-height: 16px;
+    position: relative;
+
+    .smd-error-message {
+        display: none;
+
+        &.smd-visible {
+            display: block;
+        }
+    }
+}

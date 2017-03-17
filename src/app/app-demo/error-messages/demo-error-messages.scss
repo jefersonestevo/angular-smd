@@ -1,0 +1,21 @@
+md-card {
+  margin: 10px;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .column {
+      flex: 1 0 400px;
+      margin: 0 10px;
+
+      md-input-container {
+        width: calc(100% - 20px);
+      }
+    }
+  }
+}

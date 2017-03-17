@@ -6,12 +6,14 @@ import {DemoDatatable} from "./app-demo/datatable/demo-datatable";
 import {DemoHomeComponent} from "./app-demo/demo.home";
 import {DemoFabSpeedDial} from "./app-demo/fab-speed-dial/demo-fab-speed-dial";
 import {DemoBottomNav} from "./app-demo/bottom-nav/demo-bottom-nav";
+import {DemoErrorMessages} from "./app-demo/error-messages/demo-error-messages";
 
 let COMPONENTS = [
     DemoHomeComponent,
     DemoDatatable,
     DemoFabSpeedDial,
     DemoBottomNav,
+    DemoErrorMessages,
     AppComponent
 ];
 
