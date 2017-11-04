@@ -7,8 +7,7 @@ import {
     AfterContentInit,
     ElementRef,
     Renderer,
-    Inject,
-    forwardRef,
+    Injector,
     ContentChildren,
     QueryList,
     ContentChild,
@@ -26,6 +25,7 @@ const Z_INDEX_ITEM: number = 23;
     `
 })
 export class SmdFabSpeedDialTrigger {
+    private _parent: SmdFabSpeedDialComponent;
 
     /**
      * Whether this trigger should spin (360dg) while opening the speed dial
@@ -33,7 +33,8 @@ export class SmdFabSpeedDialTrigger {
     @HostBinding('class.smd-spin')
     @Input() spin: boolean = false;
 
-    constructor(@Inject(forwardRef(() => SmdFabSpeedDialComponent)) private _parent: SmdFabSpeedDialComponent) {
+    constructor(injector: Injector) {
+        this._parent = injector.get(SmdFabSpeedDialComponent);
     }
 
     @HostListener('click', ['$event'])
@@ -53,10 +54,12 @@ export class SmdFabSpeedDialTrigger {
     `
 })
 export class SmdFabSpeedDialActions implements AfterContentInit {
+    private _parent: SmdFabSpeedDialComponent;
 
     @ContentChildren(MdButton) _buttons: QueryList<MdButton>;
 
-    constructor(@Inject(forwardRef(() => SmdFabSpeedDialComponent)) private _parent: SmdFabSpeedDialComponent, private renderer: Renderer) {
+    constructor(injector: Injector, private renderer: Renderer) {
+        this._parent = injector.get(SmdFabSpeedDialComponent);
     }
 
     ngAfterContentInit(): void {

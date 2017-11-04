@@ -4,8 +4,7 @@ import {
     ViewEncapsulation,
     Input,
     Output,
-    Inject,
-    forwardRef,
+    Injector,
     EventEmitter,
     DoCheck,
     IterableDiffers,
@@ -131,11 +130,14 @@ export class SmdDataTableCellComponent implements OnInit, OnDestroy {
     `
 })
 export class SmdDataTableRowComponent {
+    private _parent: SmdDataTable;
+
     @Input() row: SmdDataRowModel;
     @Input() renderCheckbox: boolean;
     @Input() columns: SmdDataTableColumnComponent[];
 
-    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable, private dialog: MdDialog, private viewContainerRef: ViewContainerRef) {
+    constructor(injector: Injector, private dialog: MdDialog, private viewContainerRef: ViewContainerRef) {
+        this._parent = injector.get(SmdDataTable);
     }
 
     _onClick(column: SmdDataTableColumnComponent, model: any) {
@@ -234,10 +236,13 @@ export class SmdDataTableColumnComponent implements OnInit {
     `
 })
 export class SmdDatatableActionButton {
+    private _parent: SmdDataTable;
+
     @Input() label: string;
     @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable) {
+    constructor(injector: Injector) {
+        this._parent = injector.get(SmdDataTable);
     }
 
     _onButtonClick(event: Event) {
@@ -260,12 +265,15 @@ export class SmdDatatableActionButton {
     `
 })
 export class SmdContextualDatatableButton {
+    private _parent: SmdDataTable;
+
     @Input() icon: string;
     @Input() minimunSelected: number = -1;
     @Input() maxSelected: number = -1;
     @Output() onClick: EventEmitter<any[]> = new EventEmitter<any[]>();
 
-    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable) {
+    constructor(injector: Injector) {
+        this._parent = injector.get(SmdDataTable);
     }
 
     _onButtonClick(event: Event) {
@@ -308,6 +316,7 @@ export class SmdContextualDatatableButton {
     }
 })
 export class SmdDatatableHeader implements AfterContentInit, OnDestroy {
+    private _parent: SmdDataTable;
 
     private filterTimeout: any;
     public filterValue: string;
@@ -320,7 +329,8 @@ export class SmdDatatableHeader implements AfterContentInit, OnDestroy {
     @ContentChildren(SmdDatatableActionButton) actionButtons: QueryList<SmdDatatableActionButton>;
     @ContentChildren(SmdContextualDatatableButton) contextualButtons: QueryList<SmdContextualDatatableButton>;
 
-    constructor(@Inject(forwardRef(() => SmdDataTable)) private _parent: SmdDataTable) {
+    constructor(injector: Injector) {
+        this._parent = injector.get(SmdDataTable);
     }
 
     public shouldRenderCheckbox() {
